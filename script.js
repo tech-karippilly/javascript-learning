@@ -56,3 +56,43 @@ function checkGrande(event){
         markDisplay.textContent ='Grade : D' 
     }
 }
+
+const dayFindForm = document.getElementById('dayFindForm');
+
+dayFindForm.addEventListener('submit',findDay);
+
+function findDay(event){
+    event.preventDefault();
+
+    const day = document.getElementById('dayNumber').value
+    const resultPrint = document.getElementById('day-name')
+
+    switch(parseInt(day)){
+        case 1:
+            resultPrint.innerText='Sunday'
+            break
+        case 2:
+            resultPrint.innerText ='Monday'
+            break;
+        case 3:
+            resultPrint.innerText ='Tuesday'
+            break
+        case 4:
+            resultPrint.innerText ='Wednesday'
+            break
+        case 5:
+            resultPrint.innerText ='Thursday'
+            break
+        case 6:
+            resultPrint.innerText ='Friday'
+            break
+        case 7:
+            resultPrint.innerText ='Saturday'
+            break
+        default:
+            resultPrint.innerText ='Invalid Entry'
+            break
+
+    }
+
+}
