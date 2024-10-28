@@ -10,7 +10,45 @@
 <body>
 
 
-   
+
+
+    <form id="text-form">
+        <label for="text">Enter any Text</label>
+        <input type="text" name="text" placeholder="Enter text" id="text" />
+        <button type="submit">Submit</button>
+    </form>
+
+    <form id="sum-two">
+        <h1>Sum of Two numbers</h1>
+        <label for="first-number">First Number</label>
+        <input type="number" name="first-number" placeholder="First Number" id="firstNumber" />
+        <lable for="second-number">Second Number</lable>
+        <input type="text" name="second-number" placeholder="Second Number" id="secondNumber" />
+        <button type="submit">Add</button>
+
+        <p id="result"></p>
+    </form>
+
+    <form id="simple-intrest">
+        <h1>Simple Intreset</h1>
+
+        <label for="principle-amount">Principle Amount</label>
+        <input type="number" name="principle-amount" placeholder="Enter principle amount" id="principle-amount">
+
+        <label for="interest-rate">Intreset Rate</label>
+        <input type="number" step="0.1" placeholder="Enter Intreset rate" id="interest-rate">
+
+        <label for="number-years">Number Years</label>
+        <input type="number" step="0.1" placeholder="Enter Number of Years " id="number-years">
+
+
+
+        <button type="submit">Calculate</button>
+
+        <p id="simple-intrest-result"></p>
+    </form>
+
+
 
     <script src="./script.js"></script>
 </body>
