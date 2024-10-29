@@ -1,4 +1,4 @@
-const evenArray =[]
+const sortArray =[]
 const evenArrayForm = document.getElementById('even-array-form')
 
 const arrayDisply = document.getElementById('array-display')
@@ -12,29 +12,25 @@ function createArray(event){
 
     for (let i=0;i <arraySize.value ;i++){
         let input = prompt(`Array Elemet ${i+1}`)
-        if (input !== null) evenArray.push(input)
+        if (input !== null) sortArray.push(input)
     }
     
     const arrayDisplay = document.createElement('p')
-    arrayDisplay.innerHTML = evenArray.toString()
+    arrayDisplay.innerHTML = sortArray.toString()
     arrayDisply.appendChild(arrayDisplay)
 
-    let evenCount =0;
+    const heading = document.createElement('h1')
+    heading.innerText='Sorted Array Decending Order';
 
-    for(let i= 0;i<arraySize.value;i++){
-        if(evenArray[i] %2 == 0){
-            evenCount +=1}
-    }
 
    
     const p = document.createElement('p')
-
+    p.innerHTML = sortArray.sort((a,b)=>b-a)
     
-
-    p.innerHTML='Even Count :' + evenCount
 
    
     arrayDisply.appendChild(p)
+    arrayDisplay.appendChild(heading)
 
 
 }
