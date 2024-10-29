@@ -1,45 +1,40 @@
-//ARRAY DECLARATION
-const arryaOne =[]
-const arrayTwo =[]
+const evenArray =[]
+const evenArrayForm = document.getElementById('even-array-form')
 
-const arrayOneBeforeDisplay = document.getElementById('arrayOne-beforeSwap')
-const arrayTwoBeforeDisplay =document.getElementById('arrayTwo-beforeSwap')
+const arrayDisply = document.getElementById('array-display')
 
-// ARRAY DISPLAY ELEMENTS DOM
-const arrayOneDisplay = document.getElementById('arrayOne')
-const arrayTwoDisplay =document.getElementById('arrayTwo')
+evenArrayForm.addEventListener('submit',createArray)
 
-//size of array
-const size =5
+function createArray(event){
+    event.preventDefault();
 
-//ARRAY INSERTION
-for (let i = 0; i < size; i++) {
-    const value = prompt(`Enter value ${i + 1}:`);
-    if (value !== null) {
-        arryaOne.push(value); 
+    const arraySize = document.getElementById('array-size')
+
+    for (let i=0;i <arraySize.value ;i++){
+        let input = prompt(`Array Elemet ${i+1}`)
+        if (input !== null) evenArray.push(input)
     }
-}
-//ARRAY INSERTION
-for (let i = 0; i < size; i++) {
-    const value = prompt(`Enter value ${i + 1}:`);
-    if (value !== null) {
-        arrayTwo.push(value); 
+    
+    const arrayDisplay = document.createElement('p')
+    arrayDisplay.innerHTML = evenArray.toString()
+    arrayDisply.appendChild(arrayDisplay)
+
+    let evenCount =0;
+
+    for(let i= 0;i<arraySize.value;i++){
+        if(evenArray[i] %2 == 0){
+            evenCount +=1}
     }
+
+   
+    const p = document.createElement('p')
+
+    
+
+    p.innerHTML='Even Count :' + evenCount
+
+   
+    arrayDisply.appendChild(p)
+
+
 }
-
-arrayOneBeforeDisplay.innerHTML ="Array One:" +arryaOne.toString()
-arrayTwoBeforeDisplay.innerHTML = "Array Two:" +arrayTwo.toString()
-
-
-// ARRAY SWAPPING
-let temp = 0
-
-for (let  i=0;i<arryaOne.length;i++){
-    temp = arryaOne[i]
-    arryaOne[i] = arrayTwo[i]
-    arrayTwo[i] = temp
-}
-
-// ARRAY DISPLAY
-arrayOneDisplay.innerHTML ="Array One:" +arryaOne.toString()
-arrayTwoDisplay.innerHTML = "Array Two:" +arrayTwo.toString()
