@@ -9,9 +9,12 @@ function myFunction(events){
     const arraySize = document.getElementById('array-size').value
 
     const array =[]
+    const arrayTwo = []
     const resultArray  =[]
+
     acceptArrya(array,arraySize)
-    multiplie(array,resultArray)
+    acceptArrya(arrayTwo,arraySize)
+    addArray(array,arrayTwo,resultArray)
     displayArray(resultArray)
 
 }
@@ -20,19 +23,26 @@ function myFunction(events){
 
 function acceptArrya(array,length){
     for(let i=0;i< length;i++){
-        const input = prompt('Enter value')
-        array.push(parseInt(input))
+        array[i] =[]
+        for(let j=0;j<length;j++){
+            array[i][j] = parseInt(prompt('Enter value'))
+        }
     }
 }
 
-function multiplie(mainArray,resultArray){
+function addArray(mainArray,secondArray,resultArray){
     for (let i=0;i < mainArray.length ;i++){
-        if (i+1 === mainArray.length) break
-        resultArray[i] = mainArray[i] * mainArray[i+1]
+        resultArray[i]=[]
+        for(let j=0;j<mainArray.length;j++){
+            resultArray[i][j] = mainArray[i][j] + secondArray[i][j]
+        }
     }
 }
 
 function displayArray(mainArray){
-    const arrayDisply = document.getElementById('array-display')
-    arrayDisply.innerText =mainArray
+    for (let i=0;i < mainArray.length ;i++){
+        for(let j=0;j<mainArray.length;j++){
+            console.log(mainArray[i][j])
+        }
+    }
 }
