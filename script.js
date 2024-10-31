@@ -1,47 +1,47 @@
-const sortArray =[]
-const arrayForm = document.getElementById('array-form')
 
 
-arrayForm.addEventListener('submit',myFunction)
-
-function myFunction(events){
-    events.preventDefault();
-    const arraySize = document.getElementById('array-size').value
-
-    const array =[]
-    const arrayTwo = []
-
-
-    acceptArrya(array,arraySize)
-    acceptArrya(arrayTwo,arraySize)
-
-    console.log('first array')
-    displayArray(array)
-    console.log('second array')
-    displayArray(arrayTwo)
-
-    
-}
-
-
-
-function acceptArrya(array,length){
-    for(let i=0;i< length;i++){
-        array[i] =[]
-        for(let j=0;j<length;j++){
-            array[i][j] = parseInt(prompt('Enter value'))
-        }
+const library = [ 
+    {
+        title: 'Bill Gates',
+        author: 'The Road Ahead',
+        readingStatus: true
+    },
+    {
+        title: 'Steve Jobs',
+        author: 'Walter Isaacson',
+        readingStatus: true
+    },
+    {
+        title: 'Mockingjay: The Final Book of The Hunger Games',
+        author: 'Suzanne Collins',
+        readingStatus: false
     }
-}
+]
 
+const dispayDiv = document.getElementById('display-book')
 
-function displayArray(mainArray){
-    for (let i=0;i < mainArray.length ;i++){
-        let row =''
-        for(let j=0;j<mainArray.length;j++){
-            row +=mainArray[i][j] + ' '
+const completedList = document.createElement('ol')
+const pendingList = document.createElement('ol')
 
-        }
-        console.log(row)
+library.forEach((book)=>{
+    if(book.readingStatus){
+        const li = document.createElement('li')
+        li.innerText = `Already read  ${book.title} by ${book.author}`
+        completedList.appendChild(li)
+    }else{
+        const li = document.createElement('li')
+        li.innerText = `You still need to read  ${book.title} by ${book.author}`
+        pendingList.appendChild(li)
     }
-}
+})
+const compleHeading =  document.createElement('h1')
+compleHeading.innerText='Completed Reading';
+
+const pendingHeading =  document.createElement('h1')
+pendingHeading.innerText='Pending Reading'
+
+dispayDiv.appendChild(compleHeading)
+dispayDiv.appendChild(completedList)
+dispayDiv.appendChild(pendingHeading)
+dispayDiv.appendChild(pendingList)
+
