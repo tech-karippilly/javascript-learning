@@ -15,8 +15,12 @@ function myFunction(events){
     acceptArrya(array,arraySize)
     acceptArrya(arrayTwo,arraySize)
     addArray(array,arrayTwo,resultArray)
+    console.log('first array')
+    displayArray(array)
+    console.log('second array')
+    displayArray(arrayTwo)
+    console.log('sum of array one and array two')
     displayArray(resultArray)
-
 }
 
 
@@ -41,8 +45,11 @@ function addArray(mainArray,secondArray,resultArray){
 
 function displayArray(mainArray){
     for (let i=0;i < mainArray.length ;i++){
+        let row =''
         for(let j=0;j<mainArray.length;j++){
-            console.log(mainArray[i][j])
+            row +=mainArray[i][j] + ' '
+
         }
+        console.log(row)
     }
 }
