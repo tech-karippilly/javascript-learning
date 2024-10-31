@@ -1,36 +1,38 @@
 const sortArray =[]
-const evenArrayForm = document.getElementById('even-array-form')
+const arrayForm = document.getElementById('array-form')
 
-const arrayDisply = document.getElementById('array-display')
 
-evenArrayForm.addEventListener('submit',createArray)
+arrayForm.addEventListener('submit',myFunction)
 
-function createArray(event){
-    event.preventDefault();
+function myFunction(events){
+    events.preventDefault();
+    const arraySize = document.getElementById('array-size').value
 
-    const arraySize = document.getElementById('array-size')
+    const array =[]
+    const resultArray  =[]
+    acceptArrya(array,arraySize)
+    multiplie(array,resultArray)
+    displayArray(resultArray)
 
-    for (let i=0;i <arraySize.value ;i++){
-        let input = prompt(`Array Elemet ${i+1}`)
-        if (input !== null) sortArray.push(input)
+}
+
+
+
+function acceptArrya(array,length){
+    for(let i=0;i< length;i++){
+        const input = prompt('Enter value')
+        array.push(parseInt(input))
     }
-    
-    const arrayDisplay = document.createElement('p')
-    arrayDisplay.innerHTML = sortArray.toString()
-    arrayDisply.appendChild(arrayDisplay)
+}
 
-    const heading = document.createElement('h1')
-    heading.innerText='Sorted Array Decending Order';
+function multiplie(mainArray,resultArray){
+    for (let i=0;i < mainArray.length ;i++){
+        if (i+1 === mainArray.length) break
+        resultArray[i] = mainArray[i] * mainArray[i+1]
+    }
+}
 
-
-   
-    const p = document.createElement('p')
-    p.innerHTML = sortArray.sort((a,b)=>b-a)
-    
-
-   
-    arrayDisply.appendChild(p)
-    arrayDisplay.appendChild(heading)
-
-
+function displayArray(mainArray){
+    const arrayDisply = document.getElementById('array-display')
+    arrayDisply.innerText =mainArray
 }
