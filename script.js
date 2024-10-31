@@ -40,10 +40,22 @@ function sumOfOddNumbers(events){
     
 }
 
-for(let firstLoop = 1 ;firstLoop <=5; firstLoop++){
-    let row = '';
-    for(let secondLoop =1 ;secondLoop<=firstLoop ;secondLoop++){
-        row += secondLoop + ' ';
+// for(let firstLoop = 1 ;firstLoop <=5; firstLoop++){
+//     let row = '';
+//     for(let secondLoop =1 ;secondLoop<=firstLoop ;secondLoop++){
+//         row += secondLoop + ' ';
+//     }
+//     console.log(row); 
+// }
+
+let count =1
+
+for( let i =1 ; i<= 4 ; i++){
+    let row = ' '
+
+    for (let  j=1;j<=i ;j++){
+        row +=count+" " ;
+        count += 1
     }
-    console.log(row); 
+    console.log(row)
 }
